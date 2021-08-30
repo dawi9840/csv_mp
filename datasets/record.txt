@@ -1,0 +1,15 @@
+------------------------------------------------
+numerical_coords_dataset.csv
+
+class = [
+	0: cat_camel, 
+	1: bridge_exercise, 
+	2: heel_raise
+]
+------------------------------------------------
+numerical_coords_dataset_test.csv
+
+class = [
+	1: bridge_exercise, 
+]
+------------------------------------------------
