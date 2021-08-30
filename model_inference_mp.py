@@ -254,6 +254,6 @@ if __name__ == '__main__':
     input_dict = {name: tf.convert_to_tensor([value]) for name, value in test_input_xyzv.items()}
     print(f'input_dict: \n{type(input_dict)}')
 
-    # outputs = model.predict(input_dict)
-    # pose_action = 'bridge'
-    # print(f'class: {pose_action}, prob: {outputs[0][0]}')
+    outputs = model.predict(input_dict)
+    pose_action = 'bridge'
+    print(f'class: {pose_action}, prob: {outputs[0][0]}')
