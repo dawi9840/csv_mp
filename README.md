@@ -27,7 +27,7 @@ pip install pydot
 pip install mediapipe==0.8.6.2
 ```
 model inference result:
-input: Test input a 'heel_raise' pose coordinates data to model.  
+input: Test input a 'heel_raise'(class 2) pose coordinates data to model.  
 
 output: Predict 3 categories and probability.  
 
