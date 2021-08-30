@@ -352,7 +352,7 @@ if __name__ == '__main__':
 
     dataset_csv_file = './datasets/numerical_coords_dataset.csv'
     target_value = 'class'
-    all_model = './model_weights/all_model/08.30/3_categories_pose' # all_model: Model struct and model weights.
+    all_model = './model_weights/all_model/08.30_v2/3_categories_pose' # all_model: Model struct and model weights.
     
     # Data preprocessed and creat datasets.
     pose_datasets = CsvDataset(file=dataset_csv_file)
@@ -372,10 +372,10 @@ if __name__ == '__main__':
     all_features = specify_encoded_features(train_ds, all_inputs)
     x = layers.Dense(32, activation='relu')(all_features)
     x = layers.Dropout(0.3)(x)
-    output = layers.Dense(1, activation='sigmoid')(x)
+    output = layers.Dense(3, activation='sigmoid')(x)
     model = keras.Model(all_inputs, output)
-    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
+    model.compile(optimizer='sgd', loss=keras.losses.SparseCategoricalCrossentropy(), metrics=['accuracy'])
+    
     # Model train.
     model.fit(x=train_ds, epochs=100, verbose=2, validation_data=val_ds)
 
