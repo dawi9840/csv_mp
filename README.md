@@ -9,7 +9,7 @@ The idea is from Keras documents tutorial: [Structured data classification from 
 
 **model_train_pose.py** - This file is training and saving model for classifying pose.  
 
-**model_inference_mp.py** - Input a sample pose data from **numerical_coords_dataset_test.csv** to test the saved model.
+**model_inference_mp.py** - Input a sample pose data from **numerical_coords_dataset_test0.csv (test0, test1, test2)** to test the saved model.
 
 # Installation
 
