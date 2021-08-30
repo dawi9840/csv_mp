@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow import keras
 import pandas as pd
 from model_train_pose import point
+import numpy as np
 
 def sample1_xyz(file):
     df = test_data_xyz(file)
@@ -243,17 +244,23 @@ if __name__ == '__main__':
 
     # 0: cat_camel, 1: bridge_exercise, 2: heel_raise
 
-    test_file = './datasets/numerical_coords_dataset_test.csv'
-    all_model = './model_weights/all_model/08.30/3_categories_pose'
+    test_file = './datasets/numerical_coords_dataset_test2.csv'
+    all_model = './model_weights/all_model/08.30_v2/3_categories_pose'
 
     # Loads the model and training weights.
     model = keras.models.load_model(all_model)
     # print(model.summary())
 
     test_input_xyzv = sample2_xyzv(file=test_file)
+
+    # print(test_input_xyzv)
+
     input_dict = {name: tf.convert_to_tensor([value]) for name, value in test_input_xyzv.items()}
     print(f'input_dict: \n{type(input_dict)}')
 
     outputs = model.predict(input_dict)
-    pose_action = 'bridge'
-    print(f'class: {pose_action}, prob: {outputs[0][0]}')
+    # pose_action = 'bridge'
+    # print(f'class: {pose_action}, prob: {outputs[0][0]}')
+    print(outputs)
+    print(outputs[0])
+    print(f'calss: {np.argmax(outputs[0])}')
