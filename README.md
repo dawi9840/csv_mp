@@ -26,7 +26,7 @@ conda install cudnn==8.2.0.53
 pip install pydot
 pip install mediapipe==0.8.6.2
 ```
-model inference result:
+## model inference result:  
 input: Test input a 'heel_raise' (class 2) pose coordinates data to model.  
 
 output: Predict 3 categories and probability.  
